@@ -139,7 +139,7 @@
 }
 .navmenu,
 .navbar-offcanvas {
-  width: 300px;
+  padding:0;
   height: auto;
   border-width: 1px;
   border-style: solid;
