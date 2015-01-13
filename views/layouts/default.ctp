@@ -3,9 +3,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Off Canvas Reveal Menu Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
@@ -27,6 +27,7 @@
 
   <body>
 	<div class="app">
+		<div class="mobile-bar"></div>
 		<div class="navmenu navmenu-default navmenu-fixed-left col-md-3 col-sm-5 col-xs-8">
 		  <a class="navmenu-brand" href="#">Project name</a>
 		  <ul class="nav navmenu-nav">
@@ -55,6 +56,7 @@
 		</div>
 
 		<div class="canvas">
+		
 		  <div class="navbar navbar-default navbar-fixed-top">
 			<button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
 			  <span class="icon-bar"></span>
@@ -107,6 +109,10 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 	 <?php echo $this->Html->script(array('jquery-1.10.2.min','bootstrap','jasny-bootstrap.min')); ?>
+	 <script type="text/javascript">
+		if (window.navigator.standalone) $('.app').addClass('fullscreen');
+			
+	 </script>
 	 <?php echo $scripts_for_layout; ?>
   </body>
 </html>
