@@ -4,7 +4,8 @@
 	background:none;
 	display:inline-block;
 	width: 100%;
-	overflow: hidden;
+	min-height:40px;
+	overflow: scroll;
 	white-space: nowrap;
 	margin-top:10px;
 	padding:0;
@@ -12,12 +13,6 @@
 	border-radius:4px;
 }
 .wizard::-webkit-scrollbar{width:0;}
-@media only screen and (max-device-width: 1200px){
-	.wizard{
-		overflow-x: scroll;
-	}
-	
-}
 .wizard li {
     padding: 10px 12px 10px;
     margin-right: 5px;
@@ -25,7 +20,6 @@
     position: relative;
     display: inline-block;
 	color: #777;
-	margin-bottom:5px;
 }
 .wizard li:before {
     width: 0;
