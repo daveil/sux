@@ -7,17 +7,17 @@ var test = {'steps':[
 			{
 			'title':'Juan Dela Cruz',
 			'snippet':'Grade 5',
-			'value':'123456 Juan Dela Cruz'
+			'value':{'student_number':'123456','student_name':'Juan Dela Cruz'}
 			},
 			{
 			'title':'Manuel Lopez',
 			'snippet':'Grade 4',
-			'value':'12223 Manuel Lopez'
+			'value':{'student_number':'123457','student_name':'Manuel Lopez'}
 			},
 			{
 			'title':'Maria Corazon',
 			'snippet':'Grade 7',
-			'value':'2321312 Maria Corazon'
+			'value':{'student_number':'123458','student_name':'Maria Corazon'}
 			},
 		]}
 	},
@@ -51,17 +51,17 @@ var test = {'steps':[
 			{
 			'title':'Full Payment',
 			'snippet':'P14,000',
-			'value':'P14,000'
+			'value':{'gross_amount':14000,'breakdown':[{'name':'Tuition Fee','amount':'7,000'},{'name':'Msc Fee','amount':'7,000'}]}
 			},
 			{
 			'title':'Semi Annual Payment',
 			'snippet':'P16,000',
-			'value':'P16,000'
+			'value':{'gross_amount':16000,'breakdown':[{'name':'Tuition Fee','amount':'7,000'},{'name':'Msc Fee','amount':'7,000'},{'name':'Interest','amount':'2,000'},]}
 			},
 			{
 			'title':'Installment',
 			'snippet':'P18,000',
-			'value':'P18,000'
+			'value':{'gross_amount':18000,'breakdown':[{'name':'Tuition Fee','amount':'7,000'},{'name':'Msc Fee','amount':'7,000'},{'name':'Interest','amount':'4,000'},]}
 			},
 		]}
 	},
@@ -73,17 +73,17 @@ var test = {'steps':[
 			{
 			'title':'Special Discount',
 			'snippet':'Discount on miscellaneous except Computer Fee',
-			'value':'special'
+			'value':{'name':'Special Discount','amount':-1000}
 			},
 			{
-			'title':'Frist Honot Discount',
+			'title':'Frist Honor Discount',
 			'snippet':'Full Discount on Tuition Fee',
-			'value':'first'
+			'value':{'name':'Frist Honor Discount','amount':-7000}
 			},
 			{
 			'title':'Science Club',
 			'snippet':'Additional P500',
-			'value':'P500'
+			'value':{'name':'Science Club','amount':500}
 			},
 		]}
 	},
