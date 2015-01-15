@@ -90,9 +90,9 @@
 					<p class="list-group-item-text">{{selection.snippet}}</p>
 				  </a>
 				  
-				   <a href="#" class="list-group-item" ng-click="backStep()" >
+				   <a href="#" class="list-group-item" ng-click="backStep()" ng-hide="current_step_index === 0" >
 					<h4 class="list-group-item-heading">Previous</h4>
-					<p class="list-group-item-text">Go back to Select Payment Scheme</p>
+					<p class="list-group-item-text">Go back to Step {{previous_step_index+1}} {{previous_step.step.name}}</p>
 				  </a>
 				 </div>
 				 <div class="list-group-footer">
@@ -110,12 +110,15 @@
 					<p class="list-group-item-text">
 						<div class="row">
 						<div class="col-md-6">
-							<div class="student-name"><span class="student-number">{{summary.student}}</span> </div>
+							<div class="student-name"><span class="student-number">{{summary.student.student_number}} {{summary.student.student_name}}</span> </div>
 							<div class="student-section">{{summary.section}}</div>
 						</div>
 						<div class="col-md-6 text-right">
 							<div class="school-year">SY 2015-2016</div>
-							<div class="assess-total"><h4>{{summary.payment_scheme}}</h4></div>
+							<div class="assess-total">
+								<h4 ng-show="summary.net_total">{{summary.net_total | currency: "PHP"}}</h4>
+								<label class="label">{{summary.payment_scheme.title}}</label>
+							</div>
 						</div>
 						</div>
 					</p>
@@ -125,7 +128,7 @@
 				  <a href="#" class="list-group-item">
 					<h4 class="list-group-item-heading">Tuition Fee</h4>
 					<p class="list-group-item-text">
-						<table class="table">
+						<table class="table" ng-show="summary.payment_scheme.gross_amount">
 							<thead>
 								<tr>
 									<th class="text-center">Description</th>
@@ -133,23 +136,15 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>Tuition Fee</td>
-									<td class="text-right">10,000.00</td>
-								</tr>
-								<tr>
-								<td>Matriculation Fee</td>
-									<td class="text-right">2,000.00</td>
-								</tr>
-								<tr>
-									<td>Msc Fee</td>
-									<td class="text-right">8,000.00</td>
+								<tr ng-repeat="breakdown in  summary.payment_scheme.breakdown">
+									<td>{{breakdown.name}}</td>
+									<td class="text-right">{{breakdown.amount}}</td>
 								</tr>
 							</tbody>
 							<tfoot> 
 								<tr>
 									<td><strong>Gross Total</strong></td>
-									<td class="text-right">20,000.00</td>
+									<td class="text-right">{{summary.payment_scheme.gross_amount | currency: "PHP"}}</td>
 								</tr>
 							</tfoot>
 						</table>
@@ -158,7 +153,7 @@
 				  <a href="#" class="list-group-item">
 					<h4 class="list-group-item-heading">Adjusments</h4>
 					<p class="list-group-item-text">
-						<table class="table">
+						<table class="table" ng-show="summary.adjustments.amount">
 							<thead>
 								<tr>
 									<th class="text-center">Description</th>
@@ -168,25 +163,17 @@
 							<tbody>
 								<tr>
 									<td>Gross Total</td>
-									<td class="text-right">20,00.00</td>
+									<td class="text-right">{{summary.payment_scheme.gross_amount}}</td>
 								</tr>
 								<tr>
-									<td>Reservation</td>
-									<td class="text-right">(1,000.00)</td>
-								</tr>
-								<tr>
-								<td>Special Discount</td>
-									<td class="text-right">(200.00)</td>
-								</tr>
-								<tr>
-									<td>SPA Club</td>
-									<td class="text-right">700.00</td>
+									<td>{{summary.adjustments.name}}</td>
+									<td class="text-right">{{summary.adjustments.amount}}</td>
 								</tr>
 							</tbody>
 							<tfoot> 
 								<tr>
 									<td><strong>Net Total</strong></td>
-									<td class="text-right">15,000.00</td>
+									<td class="text-right">{{summary.net_total | currency: "PHP"}}</td>
 								</tr>
 							</tfoot>
 						</table>
