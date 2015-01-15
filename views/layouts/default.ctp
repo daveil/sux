@@ -55,7 +55,7 @@
 		  </ul>
 		</div>
 
-		<div class="canvas">
+		<div class="canvas" ng-app="myapp">
 		
 		  <div class="navbar navbar-default navbar-fixed-top">
 			<button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
@@ -70,16 +70,12 @@
 			  </form>
 		  </div>
 
-		  <div class="container">
+		  <div class="container" ng-controller="PageController">
 			<div class="page-header">
 			<h2 class="action-name">Assessment</h2>
 				<div class="row-fluid">
 					<ol class="wizard">
-					  <li><span class="badge">1</span> Select Student</li>
-					  <li><span class="badge">2</span> Select Section</li>
-					  <li><span class="badge">3</span> Select Payment Scheme </li>
-					  <li class="current"><span class="badge">4</span> Add Discount and Charges</li>
-					  <li><span class="badge">5</span> Confirm Assessment</li>
+					  <li ng-repeat="s in page.steps" ng-class="{current: isCurrent($index)}"><span class="badge">{{$index + 1}}</span> {{s.step.name}}</li>
 					</ol>
 					
 				</div>
@@ -108,11 +104,12 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-	 <?php echo $this->Html->script(array('jquery-1.10.2.min','bootstrap','jasny-bootstrap.min')); ?>
+	 <?php echo $this->Html->script(array('jquery-1.10.2.min','bootstrap','jasny-bootstrap.min','angular')); ?>
 	 <script type="text/javascript">
 		if (window.navigator.standalone) $('.app').addClass('fullscreen');
 			
 	 </script>
+	 <script type="text/javascript" src="/sux/js/test_data.js"></script>
 	 <?php echo $scripts_for_layout; ?>
   </body>
 </html>

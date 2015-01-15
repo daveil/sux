@@ -19,15 +19,17 @@ $(document).ready(function () {
       // I'd like to see if anyone can give an example of how to speed up the scroll.
       this.scrollLeft = $(this).data('scrollLeft') + $(this).data('x') - event.clientX;
     }
-  }).mousewheel(function (event, delta) {
-    // now attaching the mouse wheel plugin and scroll by the 'delta' which is the
-    // movement of the wheel - so we multiple by an arbitrary number.
-    this.scrollLeft -= (delta * 30);
   }).css({
     'overflow' : 'hidden', // change to hidden for JS users
     'cursor' : '-moz-grab' // add the grab cursor
   });
 });
+/*
+.mousewheel(function (event, delta) {
+    // now attaching the mouse wheel plugin and scroll by the 'delta' which is the
+    // movement of the wheel - so we multiple by an arbitrary number.
+    this.scrollLeft -= (delta * 30);
+  })*/
 
 // finally, we want to handle the mouse going out of the browser window and
 // it not triggering the mouse up event (because the mouse is still down)

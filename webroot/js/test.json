@@ -1,0 +1,90 @@
+var test = {'steps':[
+	{
+	'step':{
+		'name':'Select Student',
+		'field':'student',
+		'selections':[
+			{
+			'title':'Juan Dela Cruz',
+			'snipper':'Grade 5'
+			'value':'123456'
+			},
+			{
+			'title':'Manuel Lopez',
+			'snipper':'Grade 4'
+			'value':'12223'
+			},
+			{
+			'title':'Maria Corazon',
+			'snipper':'Grade 7'
+			'value':'2321312'
+			},
+		]}
+	},
+	{
+	'step':{
+		'name':'Select Section',
+		'field':'section',
+		'selections':[
+			{
+			'title':'Red',
+			'snipper':'Grade 5'
+			'value':'red'
+			},
+			{
+			'title':'Block',
+			'snipper':'Grade 5'
+			'value':'block'
+			},
+			{
+			'title':'Foreign',
+			'snipper':'Grade 5'
+			'value':'foreign'
+			},
+		]}
+	},
+	{
+	'step':{
+		'name':'Select Payment Scheme',
+		'field':'payment_scheme',
+		'selections':[
+			{
+			'title':'Full Payment',
+			'snipper':'P14,000'
+			'value':'P14,00'
+			},
+			{
+			'title':'Semi Annual Payment',
+			'snipper':'P16,000'
+			'value':'P16,00'
+			},
+			{
+			'title':'Installment',
+			'snipper':'P18,000'
+			'value':'P18,00'
+			},
+		]}
+	},
+	{
+	'step':{
+		'name':'Add Discount and Charges',
+		'field':'adjustments',
+		'selections':[
+			{
+			'title':'Special Discount',
+			'snipper':'Discount on miscellaneous except Computer Fee'
+			'value':'special'
+			},
+			{
+			'title':'Frist Honot Discount',
+			'snipper':'Full Discount on Tuition Fee'
+			'value':'first'
+			},
+			{
+			'title':'Science Club',
+			'snipper':'Additional P500'
+			'value':'P500'
+			},
+		]}
+	},
+]};

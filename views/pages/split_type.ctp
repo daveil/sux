@@ -1,4 +1,4 @@
-<?php echo $this->Html->script('wizard.js',array('inline'=>false));?>
+<?php echo $this->Html->script(array('wizard','test'),array('inline'=>false));?>
 <style type="text/css"> 
 .wizard{
 	background:none;
@@ -78,34 +78,19 @@
 			<div class="list-group split-view">
 				<div class="list-group-head">
 				  <a href="#" class="list-group-item">
-					<h4 class="list-group-item-heading">Step 4</h4>
+					<h4 class="list-group-item-heading">Step {{current_step_index+1}}</h4>
 					<p class="list-group-item-text">
-						 Add Discount and Charges
+						 {{current_step.step.name}}
 					</p>
 				  </a>
 				  </div>
 				<div class="list-group-body">
-				  <a href="#" class="list-group-item">
-					<h4 class="list-group-item-heading">Special Discount</h4>
-					<p class="list-group-item-text">Discount on miscellaneous except Computer Fee</p>
+				  <a href="#" class="list-group-item" ng-repeat="selection  in current_step.step.selections" ng-click="advanceStep($index)">
+					<h4 class="list-group-item-heading">{{selection.title}}</h4>
+					<p class="list-group-item-text">{{selection.snippet}}</p>
 				  </a>
-				  <a href="#" class="list-group-item">
-					<h4 class="list-group-item-heading">First Honor Discount</h4>
-					<p class="list-group-item-text">Full Discount on Tuition Fee</p>
-				  </a>
-				  <a href="#" class="list-group-item">
-					<h4 class="list-group-item-heading">Sibling Discount</h4>
-					<p class="list-group-item-text">50% Discount on Tuition Fee</p>
-				  </a>
-				   <a href="#" class="list-group-item">
-					<h4 class="list-group-item-heading">Science Club</h4>
-					<p class="list-group-item-text">Additional P500</p>
-				  </a>
-				   <a href="#" class="list-group-item">
-					<h4 class="list-group-item-heading">SPA Club</h4>
-					<p class="list-group-item-text">Additional P700</p>
-				  </a>
-				   <a href="#" class="list-group-item">
+				  
+				   <a href="#" class="list-group-item" ng-click="backStep()" >
 					<h4 class="list-group-item-heading">Previous</h4>
 					<p class="list-group-item-text">Go back to Select Payment Scheme</p>
 				  </a>
@@ -125,12 +110,12 @@
 					<p class="list-group-item-text">
 						<div class="row">
 						<div class="col-md-6">
-							<div class="student-name"><span class="student-number">133766</span> Juan Dela Cruz </div>
-							<div class="student-section">Grade 7 Block</div>
+							<div class="student-name"><span class="student-number">{{summary.student}}</span> </div>
+							<div class="student-section">{{summary.section}}</div>
 						</div>
 						<div class="col-md-6 text-right">
 							<div class="school-year">SY 2015-2016</div>
-							<div class="assess-total"><h4>P 15,000.00</h4></div>
+							<div class="assess-total"><h4>{{summary.payment_scheme}}</h4></div>
 						</div>
 						</div>
 					</p>
@@ -210,7 +195,7 @@
 				</div>
 				<div class="list-group-footer">
 					 <div class="text-right"> 
-						 <button class="btn  btn-success btn-labeled">
+						 <button class="btn  btn-success btn-labeled" ng-click="doClick()">
 							<span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>
 							Confirm
 						 </button>
