@@ -78,7 +78,7 @@ var test = {'steps':[
 			{
 			'title':'Frist Honor Discount',
 			'snippet':'Full Discount on Tuition Fee',
-			'value':{'name':'Frist Honor Discount','amount':-7000}
+			'value':{'name':'Frist Honot Discount','amount':-7000}
 			},
 			{
 			'title':'Science Club',
@@ -86,6 +86,29 @@ var test = {'steps':[
 			'value':{'name':'Science Club','amount':500}
 			},
 		]}
+	},
+	{
+	'step':{
+		'name':'Add Sibling',
+		'field':'confirm',
+		'selections': [
+			{
+			'title':'Juan Dela Cruz',
+			'snippet':'Grade 5',
+			'value':{'student_number':'123456','student_name':'Juan Dela Cruz'}
+			},
+			{
+			'title':'Manuel Lopez',
+			'snippet':'Grade 4',
+			'value':{'student_number':'123457','student_name':'Manuel Lopez'}
+			},
+			{
+			'title':'Maria Corazon',
+			'snippet':'Grade 7',
+			'value':{'student_number':'123458','student_name':'Maria Corazon'}
+			},
+		]
+		}
 	},
 	{
 	'step':{
