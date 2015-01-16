@@ -1,4 +1,4 @@
-<?php echo $this->Html->script(array('wizard','test'),array('inline'=>false));?>
+<?php echo $this->Html->script(array('test','wizard'),array('inline'=>false));?>
 <style type="text/css"> 
 .wizard{
 	background:none;
